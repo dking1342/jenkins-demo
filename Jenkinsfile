@@ -31,7 +31,7 @@ pipeline {
 
     stage('Push') {
       steps {
-        sh 'docker push kavooce/jenkins-demo:latest'
+        sh 'docker push kavooce42/jenkins-demo:latest'
       }
     }
 
