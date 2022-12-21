@@ -13,12 +13,6 @@ pipeline {
       }
     }
 
-    stage('Build') {
-      steps {
-        sh 'docker build .'
-      }
-    }
-
     stage('Log into Dockerhub') {
       environment {
         DOCKERHUB_USER = "${DOCKERHUB_USER}"
@@ -26,6 +20,12 @@ pipeline {
       }
       steps {
         sh 'docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASS'
+      }
+    }
+
+    stage('Build') {
+      steps {
+        sh 'docker build --pull -t kavooce42/jenkins-demo:latest .'
       }
     }
 
