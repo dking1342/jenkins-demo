@@ -5,4 +5,4 @@ RUN npm install
 COPY . .
 RUN npm run build
 COPY . .
-CMD [ "npm","run","dev" ]
+CMD [ "npm","run","dev","--","--host" ]
